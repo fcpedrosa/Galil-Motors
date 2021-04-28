@@ -14,6 +14,11 @@ Galil::Galil(char* add, char* type, uint32_t sp, uint32_t acc, uint32_t decc) :
 	this->setMotorConfigurations();
 };
 
+// class destructor
+Galil::~Galil() {
+	// nothing to be done
+}
+
 // set motor configurations
 void Galil::setMotorConfigurations() {
 	// motor physical properties

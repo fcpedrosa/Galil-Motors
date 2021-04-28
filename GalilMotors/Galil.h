@@ -14,6 +14,9 @@ public:
 	// defining an overloaded constructor
 	Galil(char* add, char* type, uint32_t sp, uint32_t acc, uint32_t decc);
 
+	// class destructor
+	~Galil();
+
 	// set motor configurations
 	void setMotorConfigurations();
 

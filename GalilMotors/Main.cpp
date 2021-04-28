@@ -7,8 +7,8 @@ int main() {
 	uint32_t acceleration = 25000;
 	uint32_t deceleration = 25000;
 	int position = 0;
-	char* address = new char[100];
-	char* motion = new char[100];
+	char* address = new char[10];
+	char* motion = new char[10];
 
 	// strcpy_s(address, 100, "COM6 --baud 115200 --subscribe ALL");
 	
@@ -33,5 +33,9 @@ int main() {
 		
 	}
 
+	// freeing heap allocated memory
+	delete[] address;
+	delete[] motion;
+	address = motion = nullptr;
 	return 0;
 }
