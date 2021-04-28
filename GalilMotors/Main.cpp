@@ -4,15 +4,21 @@
 int main() {
 	// actuation speed, acceleration, and deceleration of the motor
 	uint32_t speed = 30000;
-	uint32_t acceleration = 20000;
-	uint32_t deceleration = 5000;
+	uint32_t acceleration = 25000;
+	uint32_t deceleration = 25000;
 	int position = 0;
 	char* address = new char[100];
-	strcpy_s(address, 100, "COM6 --baud 115200 --subscribe ALL");
 	char* motion = new char[100];
-	strcpy_s(motion, 100, "linear");
 
-	Galil Motor_01(address, motion, speed, acceleration, deceleration);
+	// strcpy_s(address, 100, "COM6 --baud 115200 --subscribe ALL");
+	
+	strcpy_s(address, 100, "192.168.42.100 --subscribe ALL");
+	strcpy_s(motion, 100, "angular");
+	Galil MotorAngular(address, motion, speed, acceleration, deceleration);
+
+	strcpy_s(address, 100, "192.168.42.200 --subscribe ALL");
+	strcpy_s(motion, 100, "linear");
+	Galil MotorLinear(address, motion, speed, acceleration, deceleration);
 
 	while (true) {
 		std::cout << "Enter new motor position:" << std::endl;
@@ -22,7 +28,8 @@ int main() {
 		if (std::cin.fail())
 			break;
 
-		Motor_01.trackPosition(position);
+		MotorAngular.trackPosition(position);
+		MotorLinear.trackPosition(position);
 		
 	}
 
