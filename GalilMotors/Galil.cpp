@@ -26,9 +26,9 @@ void Galil::setMotorConfigurations() {
 	
 	int type = strcmp(this->motionType, "linear");
 	if ( type == 0 )
-		this->checkError(GCmd(this->connection, "BM 2000"));			// Defines the length of the magnetic cycle in encoder counts
+		this->checkError(GCmd(this->connection, "BM 2000"));		// Defines the length of the magnetic cycle in encoder counts
 	else
-		this->checkError(GCmd(this->connection, "BM 1600"));			// Defines the length of the magnetic cycle in encoder counts
+		this->checkError(GCmd(this->connection, "BM 1600"));		// Defines the length of the magnetic cycle in encoder counts
 
 	this->checkError(GCmd(this->connection, "BZ<1000>1500"));		// brushless zero
 	this->checkError(GCmd(this->connection, "BZ 3"));				// set axes for sinusoidal communication

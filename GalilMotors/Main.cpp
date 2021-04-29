@@ -7,17 +7,17 @@ int main() {
 	uint32_t acceleration = 25000;
 	uint32_t deceleration = 25000;
 	int position = 0;
-	char* address = new char[10];
+	char* address = new char[100];
 	char* motion = new char[10];
 
 	// strcpy_s(address, 100, "COM6 --baud 115200 --subscribe ALL");
 	
 	strcpy_s(address, 100, "192.168.42.100 --subscribe ALL");
-	strcpy_s(motion, 100, "angular");
+	strcpy_s(motion, 10, "angular");
 	Galil MotorAngular(address, motion, speed, acceleration, deceleration);
 
 	strcpy_s(address, 100, "192.168.42.200 --subscribe ALL");
-	strcpy_s(motion, 100, "linear");
+	strcpy_s(motion, 10, "linear");
 	Galil MotorLinear(address, motion, speed, acceleration, deceleration);
 
 	while (true) {
